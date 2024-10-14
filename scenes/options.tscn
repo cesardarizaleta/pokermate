@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://b367p7hkvhpp"]
+[gd_scene load_steps=4 format=3 uid="uid://b367p7hkvhpp"]
 
+[ext_resource type="Texture2D" uid="uid://c0qu5oxkj34qt" path="res://assets/options/volumegrabber.png" id="2_4lx52"]
 [ext_resource type="AudioStream" uid="uid://dg21gxdw0i4rv" path="res://sounds/background.mp3" id="2_7k287"]
 [ext_resource type="Script" path="res://scripts/h_slider.gd" id="3_k37rg"]
 
@@ -10,22 +11,47 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_7k287")
 volume_db = -13.117
 autoplay = true
 
-[node name="HSlider" type="HSlider" parent="."]
-layout_mode = 0
-offset_left = 453.0
-offset_top = 193.0
-offset_right = 679.0
-offset_bottom = 477.0
+[node name="VolumeLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.328125
+anchor_top = 0.415123
+anchor_right = 0.395833
+anchor_bottom = 0.449074
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "Volume"
+metadata/_edit_use_anchors_ = true
+
+[node name="VolumeSlider" type="HSlider" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.510802
+anchor_right = 0.5
+anchor_bottom = 0.510802
+offset_left = -200.0
+offset_top = -11.0
+offset_right = -17.0
+offset_bottom = -1.00003
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.2, 2.32)
+theme_override_icons/grabber = ExtResource("2_4lx52")
+theme_override_icons/grabber_highlight = ExtResource("2_4lx52")
 max_value = 1.0
 step = 0.001
 script = ExtResource("3_k37rg")
 bus_name = "Master"
+metadata/_edit_use_anchors_ = true
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
