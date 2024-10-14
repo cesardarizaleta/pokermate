@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://b367p7hkvhpp"]
+
+[ext_resource type="AudioStream" uid="uid://dg21gxdw0i4rv" path="res://sounds/background.mp3" id="2_7k287"]
+[ext_resource type="Script" path="res://scripts/h_slider.gd" id="3_k37rg"]
+
+[node name="Options" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_7k287")
+volume_db = -13.117
+autoplay = true
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 193.0
+offset_right = 679.0
+offset_bottom = 477.0
+max_value = 1.0
+step = 0.001
+script = ExtResource("3_k37rg")
+bus_name = "Master"
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
