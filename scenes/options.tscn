@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b367p7hkvhpp"]
+[gd_scene load_steps=10 format=4 uid="uid://b367p7hkvhpp"]
 
 [ext_resource type="Texture2D" uid="uid://c0qu5oxkj34qt" path="res://assets/options/volumegrabber.png" id="2_4lx52"]
 [ext_resource type="AudioStream" uid="uid://dg21gxdw0i4rv" path="res://sounds/background.mp3" id="2_7k287"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scripts/h_slider.gd" id="3_k37rg"]
 [ext_resource type="FontFile" uid="uid://c872866xxfxjv" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="3_ttaf4"]
 [ext_resource type="Texture2D" uid="uid://bjtbqjyvuscw8" path="res://assets/options/optionsBackground.png" id="4_rw1c0"]
+[ext_resource type="AudioStream" uid="uid://bd578odnccsx5" path="res://sounds/volumeChanged.wav" id="6_dot0r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hnrw"]
 texture = ExtResource("2_cuiv4")
@@ -518,7 +519,11 @@ script = ExtResource("3_k37rg")
 bus_name = "Master"
 metadata/_edit_use_anchors_ = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ChangeVolumeSound" type="AudioStreamPlayer" parent="VolumeSlider"]
+stream = ExtResource("6_dot0r")
+volume_db = 4.0
+
+[node name="BackgroundSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_7k287")
 volume_db = -13.117
 autoplay = true
