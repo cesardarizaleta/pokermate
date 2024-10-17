@@ -87,7 +87,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Cards" type="Node" parent="."]
 
 [node name="CardAt" parent="Cards" instance=ExtResource("6_ld86l")]
-position = Vector2(64, 200)
+position = Vector2(64, 192)
 scale = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
