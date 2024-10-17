@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b744esxre0o2i"]
+[gd_scene load_steps=7 format=3 uid="uid://b744esxre0o2i"]
 
 [ext_resource type="Texture2D" uid="uid://w6rlqm3nnvxn" path="res://assets/options/backArrow.png" id="1_ekdvr"]
 [ext_resource type="Script" path="res://scripts/back_button.gd" id="2_r3s7g"]
 [ext_resource type="Texture2D" uid="uid://bjtbqjyvuscw8" path="res://assets/options/optionsBackground.png" id="3_uxntt"]
 [ext_resource type="AudioStream" uid="uid://dg21gxdw0i4rv" path="res://sounds/background.mp3" id="4_vsmn7"]
 [ext_resource type="FontFile" uid="uid://c872866xxfxjv" path="res://fonts/Pixelify_Sans/static/PixelifySans-Bold.ttf" id="5_f33cp"]
+[ext_resource type="PackedScene" uid="uid://drensqdvvi48r" path="res://scenes/cards/A/cardAT.tscn" id="6_ld86l"]
 
 [node name="Ranking" type="Control"]
 y_sort_enabled = true
@@ -25,6 +26,18 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.407843)
 metadata/_edit_lock_ = true
 
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_uxntt")
+expand_mode = 2
+metadata/_edit_lock_ = true
+
 [node name="BackButton" type="TextureButton" parent="."]
 texture_filter = 1
 layout_mode = 0
@@ -37,18 +50,6 @@ ignore_texture_size = true
 stretch_mode = 0
 flip_h = true
 script = ExtResource("2_r3s7g")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_uxntt")
-expand_mode = 2
-metadata/_edit_lock_ = true
 
 [node name="BackgroundSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_vsmn7")
@@ -68,5 +69,25 @@ theme_override_fonts/font = ExtResource("5_f33cp")
 theme_override_font_sizes/font_size = 64
 text = "Hand Ranking"
 metadata/_edit_use_anchors_ = true
+
+[node name="VolumeLabel" type="Label" parent="VolumeLabel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.576921
+anchor_top = 1.45455
+anchor_right = 0.424309
+anchor_bottom = 2.16364
+offset_right = -0.512024
+offset_bottom = 22.3999
+theme_override_fonts/font = ExtResource("5_f33cp")
+theme_override_font_sizes/font_size = 40
+text = "1. Royal Flush"
+metadata/_edit_use_anchors_ = true
+
+[node name="Cards" type="Node" parent="."]
+
+[node name="CardAt" parent="Cards" instance=ExtResource("6_ld86l")]
+position = Vector2(64, 200)
+scale = Vector2(1.5, 1.5)
 
 [connection signal="pressed" from="BackButton" to="BackButton" method="_on_pressed"]
